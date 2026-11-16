@@ -7,8 +7,10 @@ implementação de controle.
 
 ```text
 planta Python --planta.json--> controlador C++ --telemetria.json--> Streamlit
-      ^                              |
-      +------comando_planta.json-----+
+      ^                              |                                  |
+      +------comando_planta.json-----+                                  |
+                                     ^                                  |
+                                     +-----solicitacao_operador.json----+
 ```
 
 ## 1. Quem escreve e quem lê
@@ -18,6 +20,7 @@ planta Python --planta.json--> controlador C++ --telemetria.json--> Streamlit
 | `planta.json` | planta | controlador | última aquisição e confirmação da atuação |
 | `comando_planta.json` | controlador | planta | próxima atuação solicitada |
 | `telemetria.json` | controlador | supervisor | aquisição validada, estados e alarmes |
+| `solicitacao_operador.json` | supervisor | controlador | extensão: faixas, estratégia e alarmes do operador |
 
 O supervisor não grava comandos diretamente na planta nem decide o controle.
 Na versão mínima, a operação é automática, com parâmetros configurados no controlador.
@@ -111,7 +114,41 @@ O supervisor precisa mostrar a idade e a origem da aquisição. Um snapshot anti
 continua legível após o encerramento de um processo; isso não é nova medição.
 Documente o limite de obsolescência escolhido, diferente do timeout de atuação.
 
-## 5. Escrita e concorrência
+## 5. Solicitação do operador recebida pelo controlador (Extensão)
+
+```json
+{
+  "versao": 1,
+  "id": 1,
+  "timestamp": "2026-11-13T12:00:00Z",
+  "estrategia": "histerese",
+  "faixas": {
+    "nivel": {"min": 40.0, "max": 70.0},
+    "temperatura": {"min": 30.0, "max": 50.0}
+  },
+  "alarmes": {
+    "nivel_muito_baixo": {"habilitado": true, "limite": 15.0},
+    "nivel_muito_alto": {"habilitado": true, "limite": 85.0},
+    "temp_muito_baixa": {"habilitado": true, "limite": 15.0},
+    "temp_muito_alta": {"habilitado": true, "limite": 75.0}
+  }
+}
+```
+
+- `versao`: inteiro 1.
+- `id`: inteiro positivo incremental que identifica a ordem de configuração.
+- `timestamp`: instante UTC da publicação no formato ISO 8601.
+- `estrategia`: string identificando a política ativa (`"histerese"` ou `"modulada"`).
+- `faixas`: limites mínimos e máximos para nível (%) e temperatura (C), exigindo $0.0 \le min < max \le 100.0$.
+- `alarmes`: configuração de limites numéricos críticos e flags booleanas de habilitação (*bypass* de segurança).
+
+### Regras de integração e concorrência:
+1. **Fallback e Desacoplamento:** Caso `solicitacao_operador.json` não exista (como nos testes da CLI do Make com `--uma-vez`), o controlador opera de forma autônoma utilizando valores padrão seguros (nível entre 40% e 70%, temperatura entre 30°C e 50°C, estratégia `histerese` e alarmes ativos).
+2. **Aplicação Sincronizada:** Ao receber uma solicitação válida, ela só entra em vigor no cálculo da próxima leitura válida da planta. Não há recálculo retroativo com medições antigas.
+3. **Preservação de Estado:** Solicitações inválidas (ex.: campos ausentes, $min \ge max$, valores não finitos ou arquivo corrompido) são rejeitadas com diagnóstico, preservando integralmente a última configuração válida em vigor.
+4. **Escrita Atômica:** O supervisor grava o snapshot utilizando arquivo temporário e substituição (`os.replace`), garantindo que o controlador nunca leia um JSON truncado.
+
+## 6. Escrita e concorrência
 
 Cada escritor grava primeiro em arquivo temporário no mesmo diretório, fecha-o e
 substitui o destino por renomeação. Não escreva sobre o snapshot enquanto outro
@@ -123,7 +160,7 @@ Em C++, use uma biblioteca JSON para parsing e escape de texto; uma opção é
 [JSON for Modern C++](https://json.nlohmann.me/). Documente a instalação e ajuste
 o Makefile/CI se adicionar dependências. Não use expressões regulares para analisar JSON.
 
-## 6. Dinâmica e reprodução
+## 7. Dinâmica e reprodução
 
 Por ciclo, a bomba aumenta o nível em até 3 pontos, o consumo retira 1 ponto e
 um ruído em `[-0.2,0.2]` perturba a leitura. O aquecedor acrescenta até 1.5 grau,
@@ -137,7 +174,7 @@ sem mudar as equações. Os snapshots guardam somente o estado mais recente:
 um leitor lento pode perder ciclos. No projeto, registre o histórico no consumidor,
 deduplicando por sessão/ciclo, sem prometer aquisição sem perdas.
 
-## 7. Extensões compatíveis
+## 8. Extensões compatíveis
 
 A equipe pode adaptar o cenário, a dinâmica e a configuração. Documente tags,
 unidades, faixas, atuadores e comportamento seguro; atualize os fixtures e os
