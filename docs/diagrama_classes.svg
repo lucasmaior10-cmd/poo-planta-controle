@@ -1,499 +1,469 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1880 1080" width="100%" height="100%" style="background-color: #0d1117; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2220 1280" width="100%" height="100%" style="background-color: #0b0f14; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <defs>
     <!-- Marcadores de seta UML -->
-    <marker id="heranca" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <polygon points="0,1 10,6 0,11" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+    <marker id="heranca" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto">
+      <polygon points="1,2 13,7 1,12" fill="#0b0f14" stroke="#58a6ff" stroke-width="2"/>
     </marker>
-    <marker id="composicao" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto">
-      <polygon points="0,6 6,1 12,6 6,11" fill="#f0883e" stroke="#f0883e" stroke-width="1.5"/>
+    <marker id="heranca_cmd" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto">
+      <polygon points="1,2 13,7 1,12" fill="#0b0f14" stroke="#bc8cff" stroke-width="2"/>
     </marker>
-    <marker id="agregacao" markerWidth="14" markerHeight="14" refX="12" refY="6" orient="auto">
-      <polygon points="0,6 6,1 12,6 6,11" fill="#0d1117" stroke="#bc8cff" stroke-width="2"/>
+    <marker id="heranca_obs" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto">
+      <polygon points="1,2 13,7 1,12" fill="#0b0f14" stroke="#3fb950" stroke-width="2"/>
     </marker>
-    <marker id="seta_fluxo" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <polygon points="0,1 8,5 0,9" fill="#e3b341"/>
+
+    <marker id="composicao" markerWidth="16" markerHeight="16" refX="1" refY="8" orient="auto">
+      <polygon points="1,8 8,2 15,8 8,14" fill="#f0883e" stroke="#f0883e" stroke-width="1.5"/>
     </marker>
-    <marker id="seta_dependencia" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <polygon points="0,1 8,5 0,9" fill="#bc8cff"/>
+
+    <marker id="agregacao" markerWidth="16" markerHeight="16" refX="1" refY="8" orient="auto">
+      <polygon points="1,8 8,2 15,8 8,14" fill="#0b0f14" stroke="#3fb950" stroke-width="2"/>
     </marker>
-    <marker id="seta_azul" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <polygon points="0,1 8,5 0,9" fill="#58a6ff"/>
+
+    <marker id="seta_fluxo" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#e3b341"/>
     </marker>
+    <marker id="seta_dependencia" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#79c0ff"/>
+    </marker>
+    <marker id="seta_laranja" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#f0883e"/>
+    </marker>
+    <marker id="seta_verde" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#3fb950"/>
+    </marker>
+    <marker id="seta_vermelha" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#f85149"/>
+    </marker>
+
+    <!-- Filtro de sombra suave para caixas -->
+    <filter id="card_shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
   </defs>
 
-  <!-- Título Geral -->
-  <text x="940" y="38" text-anchor="middle" fill="#f0f6fc" font-size="24" font-weight="bold">Diagrama de Classes UML Completo — Arquitetura de Software</text>
-  <text x="940" y="63" text-anchor="middle" fill="#8b949e" font-size="14">Sistema de Controle e Supervisão de Reservatório Térmico | Planta (Python), Controlador (C++) e Supervisório (Python)</text>
+  <!-- ========================================================== -->
+  <!-- CABEÇALHO PRINCIPAL DO SISTEMA -->
+  <!-- ========================================================== -->
+  <text x="1110" y="38" text-anchor="middle" fill="#f0f6fc" font-size="24" font-weight="bold">Diagrama de Classes UML Completo — Arquitetura de Software</text>
+  <text x="1110" y="64" text-anchor="middle" fill="#8b949e" font-size="13">Mapeamento Integral de Relacionamentos: Strategy, Command, Repository, Observer e Contratos JSON (Layout Sem Cruzamento de Linhas)</text>
 
   <!-- ========================================================== -->
-  <!-- COLUNA 1: SUBSISTEMA PLANTA (PYTHON / FORNECIDO) -->
+  <!-- PAINEL 1: SUBSISTEMA PLANTA (PYTHON / FORNECIDO) -->
   <!-- ========================================================== -->
-  <rect x="25" y="85" width="370" height="910" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
-  <rect x="25" y="85" width="370" height="35" rx="10" fill="#1f242c" stroke="#30363d" stroke-width="2"/>
-  <text x="45" y="108" fill="#e3b341" font-size="14" font-weight="bold">1. SUBSISTEMA PLANTA (Python / Fornecido)</text>
+  <rect x="30" y="90" width="260" height="1060" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <rect x="30" y="90" width="260" height="38" rx="10" fill="#21262d" stroke="#30363d" stroke-width="2"/>
+  <text x="50" y="115" fill="#e3b341" font-size="13" font-weight="bold">1. PLANTA (Python / Fornecido)</text>
 
   <!-- Classe: Planta -->
-  <g transform="translate(45, 135)">
-    <rect width="330" height="295" rx="6" fill="#21262d" stroke="#e3b341" stroke-width="1.8"/>
-    <rect width="330" height="30" fill="#1f242c" rx="6"/>
-    <text x="165" y="20" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Planta (simulador.py)</text>
-    <line x1="0" y1="30" x2="330" y2="30" stroke="#30363d"/>
-    <text x="12" y="48" fill="#8b949e" font-size="11">- sessao: str (UUID)</text>
-    <text x="12" y="66" fill="#8b949e" font-size="11">- rng: random.Random(seed=7)</text>
-    <text x="12" y="84" fill="#8b949e" font-size="11">- ciclo: int = 0</text>
-    <text x="12" y="102" fill="#8b949e" font-size="11">- nivel: float = 50.0 (%)</text>
-    <text x="12" y="120" fill="#8b949e" font-size="11">- temperatura: float = 25.0 (°C)</text>
-    <text x="12" y="138" fill="#8b949e" font-size="11">- atuadores: dict = {"bomba": 0, "aquecedor": 0}</text>
-    <text x="12" y="156" fill="#8b949e" font-size="11">- ultimo_comando: int = 0</text>
-    <text x="12" y="174" fill="#8b949e" font-size="11">- timeout_comando: int = 5 (ciclos)</text>
-    <text x="12" y="192" fill="#8b949e" font-size="11">- erro_comando: Optional[str]</text>
-    <text x="12" y="210" fill="#8b949e" font-size="11">- motivo_seguro: Optional[str]</text>
-    <line x1="0" y1="218" x2="330" y2="218" stroke="#30363d"/>
-    <text x="12" y="236" fill="#c9d1d9" font-size="11">+ __init__(seed, sessao, timeout_comando)</text>
-    <text x="12" y="254" fill="#c9d1d9" font-size="11">+ seguro(motivo: str): void</text>
-    <text x="12" y="272" fill="#c9d1d9" font-size="11">+ receber(comando: dict): bool</text>
-    <text x="12" y="290" fill="#c9d1d9" font-size="11">+ passo(caminho_comando: Path): dict</text>
-  </g>
-
-  <!-- Detalhe da Física do Tanque -->
-  <g transform="translate(45, 450)">
-    <rect width="330" height="150" rx="6" fill="#1c2128" stroke="#30363d"/>
-    <text x="165" y="20" text-anchor="middle" fill="#e3b341" font-size="12" font-weight="bold">Dinâmica Física Simulada</text>
-    <line x1="0" y1="28" x2="330" y2="28" stroke="#30363d"/>
-    <text x="12" y="48" fill="#8b949e" font-size="11">ΔNível = 3.0*(bomba/100) - 1.0 + ruído</text>
-    <text x="12" y="66" fill="#8b949e" font-size="10" font-style="italic">  ↳ Equilíbrio estático em bomba ≈ 33.3%</text>
-    <text x="12" y="86" fill="#8b949e" font-size="11">ΔTemp = 1.5*(aquec/100) - 0.04*(T-20) + ruído</text>
-    <text x="12" y="104" fill="#8b949e" font-size="10" font-style="italic">  ↳ Relaxamento térmico para Tambiente = 20°C</text>
-    <text x="12" y="124" fill="#f0883e" font-size="10">Timeout: zera atuadores após 5 ciclos sem comando</text>
-    <text x="12" y="140" fill="#8b949e" font-size="10">Invariantes físicas: Nível [0, 100]%, Temp [0, 100]°C</text>
-  </g>
-
-  <!-- Módulo I/O Atômico da Planta -->
-  <g transform="translate(45, 620)">
-    <rect width="330" height="80" rx="6" fill="#1c2128" stroke="#30363d"/>
-    <text x="165" y="20" text-anchor="middle" fill="#c9d1d9" font-size="12" font-weight="bold">&lt;&lt;módulo&gt;&gt; I/O Atômico da Planta</text>
-    <line x1="0" y1="28" x2="330" y2="28" stroke="#30363d"/>
-    <text x="12" y="48" fill="#c9d1d9" font-size="11">+ gravar_json(caminho, doc): void</text>
-    <text x="12" y="66" fill="#8b949e" font-size="10">NamedTemporaryFile + os.replace (atômico)</text>
-  </g>
-
-  <!-- Arquivos de Troca da Planta -->
-  <g transform="translate(45, 720)">
-    <rect width="330" height="255" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="165" y="20" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">Arquivos de Troca da Planta</text>
-    <line x1="0" y1="28" x2="330" y2="28" stroke="#30363d"/>
-    <text x="12" y="48" fill="#3fb950" font-size="11" font-weight="bold">OUT: dados/planta.json</text>
-    <text x="12" y="66" fill="#8b949e" font-size="10">- versao: 1, sessao: UUID, ciclo: int</text>
-    <text x="12" y="82" fill="#8b949e" font-size="10">- leituras: [LT-01 (%), TT-01 (C)]</text>
-    <text x="12" y="98" fill="#8b949e" font-size="10">- atuadores: {bomba, aquecedor}</text>
-    <text x="12" y="114" fill="#8b949e" font-size="10">- ultimo_comando, erro_comando</text>
-    <text x="12" y="130" fill="#8b949e" font-size="10">- motivo_seguro: sem_arquivo/expirado</text>
-    <line x1="0" y1="140" x2="330" y2="140" stroke="#30363d"/>
-    <text x="12" y="158" fill="#58a6ff" font-size="11" font-weight="bold">IN: dados/comando_planta.json</text>
-    <text x="12" y="176" fill="#8b949e" font-size="10">- versao: 1, sessao: UUID</text>
-    <text x="12" y="192" fill="#8b949e" font-size="10">- id: int positivo estritamente maior</text>
-    <text x="12" y="208" fill="#8b949e" font-size="10">- atuadores: {bomba, aquecedor} em [0,100]</text>
-    <text x="12" y="228" fill="#f0883e" font-size="10" font-weight="bold">Rejeição: id repetido não renova timeout</text>
-    <text x="12" y="244" fill="#8b949e" font-size="10">Rejeita id menor ou atuador fora de [0,100]</text>
+  <g transform="translate(55, 470)" filter="url(#card_shadow)">
+    <rect width="210" height="72" rx="6" fill="#1c2128" stroke="#e3b341" stroke-width="2"/>
+    <text x="105" y="20" text-anchor="middle" fill="#e3b341" font-size="10" font-weight="bold">&lt;&lt;Simulador Físico&gt;&gt;</text>
+    <text x="105" y="40" text-anchor="middle" fill="#f0f6fc" font-size="14" font-weight="bold">Planta</text>
+    <text x="105" y="58" text-anchor="middle" fill="#8b949e" font-size="11">passo(), receber(), seguro()</text>
   </g>
 
 
   <!-- ========================================================== -->
-  <!-- SETAS DE COMUNICAÇÃO: PLANTA <-> CONTROLADOR -->
+  <!-- CANAL DE CONTRATOS 1: PLANTA &lt;-&gt; CONTROLADOR -->
   <!-- ========================================================== -->
-  <!-- planta.json -->
-  <path d="M 375 210 L 420 210" fill="none" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
-  <rect x="375" y="185" width="60" height="18" rx="4" fill="#0d1117" stroke="#e3b341"/>
-  <text x="405" y="198" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="bold">planta.json</text>
+  <!-- Arquivo: planta.json -->
+  <g transform="translate(315, 360)" filter="url(#card_shadow)">
+    <rect width="135" height="52" rx="6" fill="#1f1a14" stroke="#e3b341" stroke-width="1.8" stroke-dasharray="4,2"/>
+    <text x="67" y="18" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="bold">&lt;&lt;Contrato JSON&gt;&gt;</text>
+    <text x="67" y="38" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">planta.json</text>
+  </g>
 
-  <!-- comando_planta.json -->
-  <path d="M 420 840 L 375 840" fill="none" stroke="#58a6ff" stroke-width="2" marker-end="url(#seta_fluxo)"/>
-  <rect x="355" y="815" width="95" height="18" rx="4" fill="#0d1117" stroke="#58a6ff"/>
-  <text x="402" y="828" text-anchor="middle" fill="#58a6ff" font-size="8.5" font-weight="bold">comando_planta.json</text>
+  <!-- Arquivo: comando_planta.json -->
+  <g transform="translate(315, 680)" filter="url(#card_shadow)">
+    <rect width="135" height="52" rx="6" fill="#1f1a14" stroke="#bc8cff" stroke-width="1.8" stroke-dasharray="4,2"/>
+    <text x="67" y="18" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">&lt;&lt;Contrato JSON&gt;&gt;</text>
+    <text x="67" y="38" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">comando_planta.json</text>
+  </g>
 
 
   <!-- ========================================================== -->
-  <!-- COLUNA 2: SUBSISTEMA CONTROLADOR C++ (AUTORAL) -->
+  <!-- PAINEL 2: SUBSISTEMA CONTROLADOR (C++ / AUTORAL) -->
   <!-- ========================================================== -->
-  <rect x="420" y="85" width="745" height="910" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
-  <rect x="420" y="85" width="745" height="35" rx="10" fill="#1f242c" stroke="#30363d" stroke-width="2"/>
-  <text x="440" y="108" fill="#58a6ff" font-size="14" font-weight="bold">2. SUBSISTEMA CONTROLADOR C++ (Decisão, Strategy &amp; Command)</text>
+  <rect x="475" y="90" width="1000" height="1060" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <rect x="475" y="90" width="1000" height="38" rx="10" fill="#21262d" stroke="#30363d" stroke-width="2"/>
+  <text x="495" y="115" fill="#58a6ff" font-size="13" font-weight="bold">2. CONTROLADOR (C++ / Autoral — Strategy, Command &amp; Intertravamento)</text>
 
-  <!-- Classe: ControladorProcesso -->
-  <g transform="translate(440, 135)">
-    <rect width="320" height="165" rx="6" fill="#21262d" stroke="#58a6ff" stroke-width="1.8"/>
-    <rect width="320" height="28" fill="#1f242c" rx="6"/>
-    <text x="160" y="19" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">ControladorProcesso</text>
-    <line x1="0" y1="28" x2="320" y2="28" stroke="#30363d"/>
-    <text x="10" y="45" fill="#8b949e" font-size="11">- estrategia: unique_ptr&lt;IEstrategia&gt;</text>
-    <text x="10" y="61" fill="#8b949e" font-size="11">- ultimoComando: unique_ptr&lt;IComando&gt;</text>
-    <text x="10" y="77" fill="#8b949e" font-size="11">- seguranca: GerenciadorSeguranca</text>
-    <text x="10" y="93" fill="#8b949e" font-size="11">- configAtiva: ConfiguracaoOperador</text>
-    <text x="10" y="109" fill="#8b949e" font-size="11">- ultimoCicloProcessado: int</text>
-    <line x1="0" y1="116" x2="320" y2="116" stroke="#30363d"/>
-    <text x="10" y="133" fill="#c9d1d9" font-size="11">+ executarPasso(dirDados): int</text>
-    <text x="10" y="149" fill="#c9d1d9" font-size="11">+ definirEstrategia(novaEstrategia)</text>
+  <!-- == STRATEGY PATTERN (Topo) == -->
+  <!-- Concrete Strategy A: EstrategiaFaixaHisterese -->
+  <g transform="translate(510, 150)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1c2128" stroke="#58a6ff" stroke-width="1.8"/>
+    <text x="100" y="17" text-anchor="middle" fill="#58a6ff" font-size="9" font-weight="bold">&lt;&lt;Concrete Strategy&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">EstrategiaFaixaHisterese</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Controle ON/OFF com histerese</text>
   </g>
 
-  <!-- Classe: GerenciadorSeguranca (COM OS 4 LIMITES) -->
-  <g transform="translate(790, 135)">
-    <rect width="355" height="165" rx="6" fill="#21262d" stroke="#f0883e" stroke-width="1.8"/>
-    <rect width="355" height="28" fill="#1f242c" rx="6"/>
-    <text x="177" y="19" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">GerenciadorSeguranca</text>
-    <line x1="0" y1="28" x2="355" y2="28" stroke="#30363d"/>
-    <text x="10" y="44" fill="#8b949e" font-size="10.5">- nivelCriticoBaixo: 15.0% (rearme em 20.0%)</text>
-    <text x="10" y="59" fill="#8b949e" font-size="10.5">- nivelCriticoAlto: 85.0% (rearme em 80.0%)</text>
-    <text x="10" y="74" fill="#8b949e" font-size="10.5">- tempCriticaBaixa: 15.0°C (rearme em 18.0°C)</text>
-    <text x="10" y="89" fill="#8b949e" font-size="10.5">- tempCriticaAlta: 75.0°C (rearme em 70.0°C)</text>
-    <line x1="0" y1="96" x2="355" y2="96" stroke="#30363d"/>
-    <text x="10" y="113" fill="#c9d1d9" font-size="11">+ avaliarAlarmes(nivel, temp): list&lt;Alarme&gt;</text>
-    <text x="10" y="130" fill="#c9d1d9" font-size="11">+ verificarIntertravamento(): bool</text>
-    <text x="10" y="147" fill="#c9d1d9" font-size="11">+ criarComandoSeguranca(): IComando</text>
+  <!-- Concrete Strategy B: EstrategiaProporcionalModulada -->
+  <g transform="translate(735, 150)" filter="url(#card_shadow)">
+    <rect width="215" height="58" rx="6" fill="#1c2128" stroke="#58a6ff" stroke-width="1.8"/>
+    <text x="107" y="17" text-anchor="middle" fill="#58a6ff" font-size="9" font-weight="bold">&lt;&lt;Concrete Strategy&gt;&gt;</text>
+    <text x="107" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">EstrategiaProporcionalModulada</text>
+    <text x="107" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Controle proporcional contínuo</text>
   </g>
 
-  <!-- Composicao Controlador -> Seguranca -->
-  <line x1="760" y1="210" x2="790" y2="210" stroke="#f0883e" stroke-width="1.5" marker-start="url(#composicao)"/>
-
-  <!-- Padrão STRATEGY -->
-  <g transform="translate(440, 315)">
-    <rect width="320" height="95" rx="6" fill="#1c2128" stroke="#58a6ff" stroke-width="2"/>
-    <rect width="320" height="32" fill="#1f242c" rx="6"/>
-    <text x="160" y="16" text-anchor="middle" fill="#58a6ff" font-size="10" font-style="italic">&lt;&lt;interface&gt;&gt; [Strategy]</text>
-    <text x="160" y="28" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">IEstrategiaControle</text>
-    <line x1="0" y1="32" x2="320" y2="32" stroke="#30363d"/>
-    <text x="10" y="50" fill="#c9d1d9" font-size="11">+ nome()*: string</text>
-    <text x="10" y="68" fill="#c9d1d9" font-size="11">+ calcular(nivel, temp, cfg: ConfigOp)*: Atuacao</text>
-    <text x="10" y="86" fill="#c9d1d9" font-size="11">+ resetar()*: void</text>
+  <!-- Interface: IEstrategiaControle -->
+  <g transform="translate(635, 250)" filter="url(#card_shadow)">
+    <rect width="180" height="58" rx="6" fill="#1f242c" stroke="#58a6ff" stroke-width="2"/>
+    <text x="90" y="17" text-anchor="middle" fill="#58a6ff" font-size="9" font-weight="bold">&lt;&lt;Interface — Strategy&gt;&gt;</text>
+    <text x="90" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">IEstrategiaControle</text>
+    <text x="90" y="50" text-anchor="middle" fill="#8b949e" font-size="10">+calcular(), +resetar()</text>
   </g>
 
-  <!-- Composicao Controlador -> Strategy -->
-  <line x1="600" y1="300" x2="600" y2="315" stroke="#58a6ff" stroke-width="1.5" marker-start="url(#composicao)"/>
-
-  <!-- EstrategiaFaixaHisterese -->
-  <g transform="translate(440, 425)">
-    <rect width="320" height="75" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="320" height="22" fill="#1f242c" rx="6"/>
-    <text x="160" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">EstrategiaFaixaHisterese (A)</text>
-    <line x1="0" y1="22" x2="320" y2="22" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">- bombaLigada, aquecedorLigado: bool</text>
-    <line x1="0" y1="44" x2="320" y2="44" stroke="#30363d"/>
-    <text x="10" y="60" fill="#c9d1d9" font-size="10">+ calcular(): Atuação 0% ou 100%</text>
+  <!-- == CONFIGURAÇÃO OPERADOR (Topo Direita) == -->
+  <g transform="translate(1245, 250)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1c2128" stroke="#f0883e" stroke-width="1.8"/>
+    <text x="100" y="17" text-anchor="middle" fill="#f0883e" font-size="9" font-weight="bold">&lt;&lt;Configuração / Setpoints&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">ConfiguracaoOperador</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Faixas min/max e estratégia ativa</text>
   </g>
 
-  <!-- EstrategiaProporcionalModulada -->
-  <g transform="translate(440, 510)">
-    <rect width="320" height="75" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="320" height="22" fill="#1f242c" rx="6"/>
-    <text x="160" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">EstrategiaProporcionalModulada (B)</text>
-    <line x1="0" y1="22" x2="320" y2="22" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">- kpBomba, kpAquecedor: double</text>
-    <line x1="0" y1="44" x2="320" y2="44" stroke="#30363d"/>
-    <text x="10" y="60" fill="#c9d1d9" font-size="10">+ calcular(): Equilíbrio fino (~33%)</text>
+  <!-- == INGESTÃO E DOMÍNIO (Meio-Esquerda) == -->
+  <!-- Aquisicao -->
+  <g transform="translate(495, 360)" filter="url(#card_shadow)">
+    <rect width="175" height="58" rx="6" fill="#1c2128" stroke="#79c0ff" stroke-width="1.8"/>
+    <text x="87" y="17" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">&lt;&lt;Parse &amp; Validação&gt;&gt;</text>
+    <text x="87" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Aquisicao</text>
+    <text x="87" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Validação estrita de planta.json</text>
   </g>
 
-  <!-- Linha Herança Strategy -->
-  <path d="M 440 460 L 425 460 L 425 360 L 440 360" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#heranca)"/>
-  <path d="M 440 545 L 425 545 L 425 360" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4"/>
-
-  <!-- Padrão COMMAND -->
-  <g transform="translate(790, 315)">
-    <rect width="355" height="105" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-width="2"/>
-    <rect width="355" height="32" fill="#1f242c" rx="6"/>
-    <text x="177" y="16" text-anchor="middle" fill="#bc8cff" font-size="10" font-style="italic">&lt;&lt;interface&gt;&gt; [Command]</text>
-    <text x="177" y="28" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">IComando</text>
-    <line x1="0" y1="32" x2="355" y2="32" stroke="#30363d"/>
-    <text x="10" y="50" fill="#c9d1d9" font-size="11">+ id()*: int | sessao()*: string</text>
-    <text x="10" y="67" fill="#c9d1d9" font-size="11">+ bomba()*: double | aquecedor()*: double</text>
-    <text x="10" y="84" fill="#c9d1d9" font-size="11">+ foiConfirmado(ultimoComando): bool</text>
-    <text x="10" y="99" fill="#c9d1d9" font-size="11">+ gerarJson()*: string</text>
+  <!-- Medicao -->
+  <g transform="translate(495, 475)" filter="url(#card_shadow)">
+    <rect width="165" height="55" rx="6" fill="#1c2128" stroke="#79c0ff" stroke-width="1.5"/>
+    <text x="82" y="17" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">&lt;&lt;Entidade de Domínio&gt;&gt;</text>
+    <text x="82" y="35" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Medicao</text>
+    <text x="82" y="48" text-anchor="middle" fill="#8b949e" font-size="10">+valor(), +ehValido()</text>
   </g>
 
-  <!-- Conexao Controlador -> IComando (COMPOSIÇÃO: guarda ultimoComandoEmitido) -->
-  <path d="M 760 280 L 820 280 L 820 315" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-start="url(#composicao)"/>
-  <text x="825" y="275" fill="#bc8cff" font-size="9" font-weight="bold">ultimoComando</text>
-
-  <!-- Subclasses Command -->
-  <g transform="translate(790, 440)">
-    <rect width="355" height="70" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="355" height="22" fill="#1f242c" rx="6"/>
-    <text x="177" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">ComandoAtuacao (Operação Normal)</text>
-    <line x1="0" y1="22" x2="355" y2="22" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">- id: int, sessao: string, bomba: double, aquecedor: double</text>
-    <text x="10" y="54" fill="#c9d1d9" font-size="10">+ foiConfirmado(ultimo) | + gerarJson()</text>
+  <!-- Atuacao -->
+  <g transform="translate(685, 475)" filter="url(#card_shadow)">
+    <rect width="165" height="55" rx="6" fill="#1c2128" stroke="#79c0ff" stroke-width="1.5"/>
+    <text x="82" y="17" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">&lt;&lt;Entidade de Domínio&gt;&gt;</text>
+    <text x="82" y="35" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Atuacao</text>
+    <text x="82" y="48" text-anchor="middle" fill="#8b949e" font-size="10">bomba, aquecedor [0..100]</text>
   </g>
 
-  <!-- Conexão Strategy -> ComandoAtuacao (A estratégia decide e gera ComandoAtuacao) -->
-  <path d="M 760 480 L 790 480" fill="none" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#seta_fluxo)"/>
-  <text x="775" y="472" text-anchor="middle" fill="#3fb950" font-size="8">gera</text>
-
-  <g transform="translate(790, 520)">
-    <rect width="355" height="70" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="355" height="22" fill="#1f242c" rx="6"/>
-    <text x="177" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">ComandoSeguranca (Intertravamento)</text>
-    <line x1="0" y1="22" x2="355" y2="22" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">- motivoIntertravamento: string (força atuadores com segurança)</text>
-    <text x="10" y="54" fill="#c9d1d9" font-size="10">+ forcarAtuador(bomba, aquecedor) | + gerarJson()</text>
+  <!-- == NÚCLEO CONTROLADOR (Centro) == -->
+  <g transform="translate(895, 370)" filter="url(#card_shadow)">
+    <rect width="230" height="72" rx="8" fill="#1f242c" stroke="#58a6ff" stroke-width="2.2"/>
+    <text x="115" y="19" text-anchor="middle" fill="#58a6ff" font-size="10" font-weight="bold">&lt;&lt;Contexto / Orquestrador&gt;&gt;</text>
+    <text x="115" y="41" text-anchor="middle" fill="#f0f6fc" font-size="14" font-weight="bold">ControladorProcesso</text>
+    <text x="115" y="59" text-anchor="middle" fill="#8b949e" font-size="11">executarPasso(), gerencia ciclo</text>
   </g>
 
-  <!-- Conexão GerenciadorSeguranca -> ComandoSeguranca (Segurança cria ComandoSeguranca) -->
-  <path d="M 1145 220 L 1155 220 L 1155 555 L 1145 555" fill="none" stroke="#f0883e" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#seta_fluxo)"/>
-  <text x="1160" y="380" fill="#f0883e" font-size="9" transform="rotate(90 1160,380)">«instancia em alarme»</text>
-
-  <!-- Linha Herança Command -->
-  <path d="M 967 440 L 967 420" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#heranca)"/>
-  <path d="M 967 520 L 967 510" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="4"/>
-
-  <!-- LINHA DE DTOs E CLASSES DE VALOR C++ -->
-  <!-- ConfiguracaoOperador -->
-  <g transform="translate(440, 600)">
-    <rect width="230" height="95" rx="6" fill="#21262d" stroke="#e3b341" stroke-width="1.5"/>
-    <text x="115" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">ConfiguracaoOperador</text>
-    <line x1="0" y1="24" x2="230" y2="24" stroke="#30363d"/>
-    <text x="8" y="38" fill="#8b949e" font-size="10">- versao: int, id: int</text>
-    <text x="8" y="53" fill="#8b949e" font-size="10">- estrategia: string</text>
-    <text x="8" y="68" fill="#8b949e" font-size="10">- nivelMin, nivelMax: double</text>
-    <text x="8" y="83" fill="#8b949e" font-size="10">- tempMin, tempMax: double</text>
-  </g>
-
-  <!-- SETAS DE CONEXÃO DO CONFIGURACAOOPERADOR -->
-  <!-- 1. ControladorProcesso COMPÕE ConfiguracaoOperador (guarda a configAtiva) -->
-  <path d="M 440 280 L 415 280 L 415 645 L 440 645" fill="none" stroke="#f0883e" stroke-width="1.5" marker-start="url(#composicao)"/>
-  <text x="410" y="460" fill="#f0883e" font-size="9" transform="rotate(-90 410,460)">configAtiva (*--)</text>
-
-  <!-- 2. IEstrategiaControle DEPENDE de ConfiguracaoOperador (passado como parâmetro) -->
-  <path d="M 555 410 L 555 600" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#seta_azul)"/>
-  <text x="560" y="505" fill="#58a6ff" font-size="9">«usa cfg»</text>
-
-  <!-- Medicao e Atuacao -->
-  <g transform="translate(685, 600)">
-    <rect width="215" height="95" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="107" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">Medicao &amp; Atuacao</text>
-    <line x1="0" y1="24" x2="215" y2="24" stroke="#30363d"/>
-    <text x="8" y="38" fill="#8b949e" font-size="10">Medicao: valor_ em [0, 100]</text>
-    <text x="8" y="53" fill="#c9d1d9" font-size="10">+ ehValido(): bool</text>
-    <text x="8" y="70" fill="#8b949e" font-size="10">Atuacao: bomba, aquecedor</text>
-    <text x="8" y="85" fill="#c9d1d9" font-size="10">+ bomba() | + aquecedor()</text>
+  <!-- == TELEMETRIA E ALARMES (Meio-Direita) == -->
+  <!-- Telemetria -->
+  <g transform="translate(1245, 380)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1c2128" stroke="#79c0ff" stroke-width="1.8"/>
+    <text x="100" y="17" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">&lt;&lt;Envelope Telemetria&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Telemetria</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Gera telemetria com alarmes</text>
   </g>
 
   <!-- Alarme -->
-  <g transform="translate(915, 600)">
-    <rect width="230" height="95" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="115" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">Alarme</text>
-    <line x1="0" y1="24" x2="230" y2="24" stroke="#30363d"/>
-    <text x="8" y="38" fill="#8b949e" font-size="10">- codigo: string (ex: TEMP_ALTA)</text>
-    <text x="8" y="53" fill="#8b949e" font-size="10">- mensagem: string</text>
-    <text x="8" y="68" fill="#8b949e" font-size="10">- severidade: aviso / critico</text>
-    <text x="8" y="85" fill="#c9d1d9" font-size="10">+ codigo() | + severidade()</text>
+  <g transform="translate(1245, 510)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1c2128" stroke="#f85149" stroke-width="1.8"/>
+    <text x="100" y="17" text-anchor="middle" fill="#f85149" font-size="9" font-weight="bold">&lt;&lt;Entidade de Domínio&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">Alarme</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">codigo, mensagem, severidade</text>
   </g>
 
-  <!-- DTOs de Arquivo: Aquisicao e Telemetria -->
-  <g transform="translate(440, 710)">
-    <rect width="335" height="100" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="167" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">Aquisicao (DTO)</text>
-    <line x1="0" y1="24" x2="335" y2="24" stroke="#30363d"/>
-    <text x="8" y="38" fill="#8b949e" font-size="10">- ciclo: int, sessao: string, timestamp: string</text>
-    <text x="8" y="53" fill="#8b949e" font-size="10">- nivel, temperatura: double, atuadores: Atuacao</text>
-    <text x="8" y="68" fill="#8b949e" font-size="10">- ultimoComando, motivoSeguro</text>
-    <text x="8" y="86" fill="#c9d1d9" font-size="10">+ validarContrato(): bool (recusa dados inválidos)</text>
+  <!-- == SEGURANÇA E INTERTRAVAMENTO (Centro-Baixo) == -->
+  <g transform="translate(900, 565)" filter="url(#card_shadow)">
+    <rect width="220" height="65" rx="6" fill="#1f242c" stroke="#f85149" stroke-width="2"/>
+    <text x="110" y="18" text-anchor="middle" fill="#f85149" font-size="9" font-weight="bold">&lt;&lt;Segurança &amp; Intertravamento&gt;&gt;</text>
+    <text x="110" y="38" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">GerenciadorSeguranca</text>
+    <text x="110" y="54" text-anchor="middle" fill="#8b949e" font-size="10">avaliarAlarmes(), intertravamento</text>
   </g>
 
-  <g transform="translate(790, 710)">
-    <rect width="355" height="100" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="177" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">Telemetria (DTO)</text>
-    <line x1="0" y1="24" x2="355" y2="24" stroke="#30363d"/>
-    <text x="8" y="38" fill="#8b949e" font-size="10">Encapsula dados de Aquisicao validada</text>
-    <text x="8" y="53" fill="#8b949e" font-size="10">+ alarmes: std::vector&lt;Alarme&gt;</text>
-    <text x="8" y="68" fill="#8b949e" font-size="10">+ serializarJson(): string</text>
-    <text x="8" y="86" fill="#3fb950" font-size="10">Gera telemetria.json para o Supervisório</text>
+  <!-- == COMMAND PATTERN (Baixo-Esquerda) == -->
+  <!-- Interface: IComando -->
+  <g transform="translate(500, 675)" filter="url(#card_shadow)">
+    <rect width="180" height="58" rx="6" fill="#1f242c" stroke="#bc8cff" stroke-width="2"/>
+    <text x="90" y="17" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">&lt;&lt;Interface — Command&gt;&gt;</text>
+    <text x="90" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">IComando</text>
+    <text x="90" y="50" text-anchor="middle" fill="#8b949e" font-size="10">id, sessao, foiConfirmado()</text>
   </g>
 
-  <!-- Módulo I/O Atômico C++ -->
-  <g transform="translate(440, 825)">
-    <rect width="705" height="65" rx="6" fill="#1c2128" stroke="#30363d"/>
-    <text x="352" y="18" text-anchor="middle" fill="#c9d1d9" font-size="11" font-weight="bold">Publicador Atômico C++ (publicador_json.hpp / .cpp)</text>
-    <line x1="0" y1="24" x2="705" y2="24" stroke="#30363d"/>
-    <text x="15" y="42" fill="#c9d1d9" font-size="11">+ gravarAtomico(caminho, jsonConteudo): bool</text>
-    <text x="15" y="57" fill="#8b949e" font-size="10">Grava em arquivo .tmp no mesmo diretório e renomeia atomicamente via std::filesystem::rename</text>
+  <!-- Concrete Command: ComandoAtuacao -->
+  <g transform="translate(495, 810)" filter="url(#card_shadow)">
+    <rect width="180" height="58" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-width="1.8"/>
+    <text x="90" y="17" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">&lt;&lt;Concrete Command&gt;&gt;</text>
+    <text x="90" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">ComandoAtuacao</text>
+    <text x="90" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Atuação normal da estratégia</text>
+  </g>
+
+  <!-- Concrete Command: ComandoSeguranca -->
+  <g transform="translate(710, 810)" filter="url(#card_shadow)">
+    <rect width="185" height="58" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-width="1.8"/>
+    <text x="92" y="17" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">&lt;&lt;Concrete Command&gt;&gt;</text>
+    <text x="92" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">ComandoSeguranca</text>
+    <text x="92" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Intertravamento seguro</text>
+  </g>
+
+  <!-- PublicadorJson (Serviço de Persistência) -->
+  <g transform="translate(500, 940)" filter="url(#card_shadow)">
+    <rect width="180" height="58" rx="6" fill="#1c2128" stroke="#79c0ff" stroke-width="1.8"/>
+    <text x="90" y="17" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">&lt;&lt;Serviço de Persistência&gt;&gt;</text>
+    <text x="90" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">PublicadorJson</text>
+    <text x="90" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Escrita atômica (.tmp + rename)</text>
   </g>
 
 
   <!-- ========================================================== -->
-  <!-- SETAS DE COMUNICAÇÃO: CONTROLADOR <-> SUPERVISÓRIO -->
+  <!-- CANAL DE CONTRATOS 2: CONTROLADOR &lt;-&gt; SUPERVISÓRIO -->
   <!-- ========================================================== -->
-  <!-- telemetria.json -->
-  <path d="M 1165 210 L 1210 210" fill="none" stroke="#3fb950" stroke-width="2" marker-end="url(#seta_fluxo)"/>
-  <rect x="1155" y="185" width="70" height="18" rx="4" fill="#0d1117" stroke="#3fb950"/>
-  <text x="1190" y="198" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="bold">telemetria.json</text>
+  <!-- Arquivo: solicitacao_operador.json -->
+  <g transform="translate(1500, 255)" filter="url(#card_shadow)">
+    <rect width="145" height="48" rx="6" fill="#1f1a14" stroke="#f0883e" stroke-width="1.8" stroke-dasharray="4,2"/>
+    <text x="72" y="17" text-anchor="middle" fill="#f0883e" font-size="8" font-weight="bold">&lt;&lt;Contrato JSON&gt;&gt;</text>
+    <text x="72" y="35" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">solicitacao_operador.json</text>
+  </g>
 
-  <!-- solicitacao_operador.json -->
-  <path d="M 1210 840 L 1165 840" fill="none" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
-  <rect x="1140" y="815" width="105" height="18" rx="4" fill="#0d1117" stroke="#e3b341"/>
-  <text x="1192" y="828" text-anchor="middle" fill="#e3b341" font-size="8.5" font-weight="bold">solicitacao_operador.json</text>
-
-  <!-- Conexão do arquivo solicitacao_operador.json para ConfiguracaoOperador -->
-  <path d="M 1140 825 L 670 825 L 670 695" fill="none" stroke="#e3b341" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#seta_fluxo)"/>
-  <text x="890" y="820" text-anchor="middle" fill="#e3b341" font-size="8.5">parse para objeto ConfiguracaoOperador</text>
+  <!-- Arquivo: telemetria.json -->
+  <g transform="translate(1500, 385)" filter="url(#card_shadow)">
+    <rect width="145" height="48" rx="6" fill="#1f1a14" stroke="#79c0ff" stroke-width="1.8" stroke-dasharray="4,2"/>
+    <text x="72" y="17" text-anchor="middle" fill="#79c0ff" font-size="8" font-weight="bold">&lt;&lt;Contrato JSON&gt;&gt;</text>
+    <text x="72" y="35" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">telemetria.json</text>
+  </g>
 
 
   <!-- ========================================================== -->
-  <!-- COLUNA 3: SUBSISTEMA SUPERVISÓRIO PYTHON (AUTORAL) -->
+  <!-- PAINEL 3: SUBSISTEMA SUPERVISÓRIO (PYTHON / AUTORAL) -->
   <!-- ========================================================== -->
-  <rect x="1210" y="85" width="645" height="910" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
-  <rect x="1210" y="85" width="645" height="35" rx="10" fill="#1f242c" stroke="#30363d" stroke-width="2"/>
-  <text x="1230" y="108" fill="#3fb950" font-size="14" font-weight="bold">3. SUBSISTEMA SUPERVISÓRIO PYTHON (IHM, Repository &amp; Observer)</text>
+  <rect x="1680" y="90" width="510" height="1060" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <rect x="1680" y="90" width="510" height="38" rx="10" fill="#21262d" stroke="#30363d" stroke-width="2"/>
+  <text x="1700" y="115" fill="#3fb950" font-size="13" font-weight="bold">3. SUPERVISÓRIO (Python / Autoral — Repository &amp; Observer)</text>
 
-  <!-- SupervisorioApp (Streamlit) -->
-  <g transform="translate(1230, 135)">
-    <rect width="285" height="165" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.8"/>
-    <rect width="285" height="28" fill="#1f242c" rx="6"/>
-    <text x="142" y="19" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">SupervisorioApp (Streamlit)</text>
-    <line x1="0" y1="28" x2="285" y2="28" stroke="#30363d"/>
-    <text x="10" y="45" fill="#8b949e" font-size="11">- repositorio: RepositorioHistorico</text>
-    <text x="10" y="61" fill="#8b949e" font-size="11">- monitor: MonitorAlarmes</text>
-    <line x1="0" y1="70" x2="285" y2="70" stroke="#30363d"/>
-    <text x="10" y="90" fill="#c9d1d9" font-size="11">+ executar_ciclo_leitura()</text>
-    <text x="10" y="107" fill="#c9d1d9" font-size="11">+ renderizar_graficos()</text>
-    <text x="10" y="124" fill="#c9d1d9" font-size="11">+ painel_admin("adm123")</text>
-    <text x="10" y="141" fill="#c9d1d9" font-size="11">+ exportar_csv()</text>
+  <!-- SupervisorioApp -->
+  <g transform="translate(1820, 245)" filter="url(#card_shadow)">
+    <rect width="230" height="70" rx="8" fill="#1f242c" stroke="#3fb950" stroke-width="2.2"/>
+    <text x="115" y="18" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="bold">&lt;&lt;Aplicação IHM Streamlit&gt;&gt;</text>
+    <text x="115" y="40" text-anchor="middle" fill="#f0f6fc" font-size="14" font-weight="bold">SupervisorioApp</text>
+    <text x="115" y="57" text-anchor="middle" fill="#8b949e" font-size="11">Dashboard visual e orquestração</text>
   </g>
 
-  <!-- RepositorioHistorico (Repository) -->
-  <g transform="translate(1540, 135)">
-    <rect width="295" height="165" rx="6" fill="#1c2128" stroke="#58a6ff" stroke-width="2"/>
-    <rect width="295" height="32" fill="#1f242c" rx="6"/>
-    <text x="147" y="16" text-anchor="middle" fill="#58a6ff" font-size="10" font-style="italic">[Padrão Repository]</text>
-    <text x="147" y="28" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">RepositorioHistorico</text>
-    <line x1="0" y1="32" x2="295" y2="32" stroke="#30363d"/>
-    <text x="10" y="50" fill="#8b949e" font-size="11">- caminho_db: Path ("historico.db")</text>
-    <line x1="0" y1="58" x2="295" y2="58" stroke="#30363d"/>
-    <text x="10" y="76" fill="#c9d1d9" font-size="11">+ inicializar_banco(): void</text>
-    <text x="10" y="93" fill="#c9d1d9" font-size="11">+ salvar_registro(reg): bool</text>
-    <text x="10" y="110" fill="#c9d1d9" font-size="11">+ obter_ultimos(limite): list</text>
-    <text x="10" y="127" fill="#c9d1d9" font-size="11">+ exportar_csv(caminho): int</text>
+  <!-- == REPOSITORY PATTERN (Esquerda Supervisório) == -->
+  <!-- RepositorioHistorico -->
+  <g transform="translate(1705, 380)" filter="url(#card_shadow)">
+    <rect width="195" height="58" rx="6" fill="#1c2128" stroke="#39c5bb" stroke-width="1.8"/>
+    <text x="97" y="17" text-anchor="middle" fill="#39c5bb" font-size="9" font-weight="bold">&lt;&lt;Repository Pattern&gt;&gt;</text>
+    <text x="97" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">RepositorioHistorico</text>
+    <text x="97" y="50" text-anchor="middle" fill="#8b949e" font-size="10">SQLite e exportação CSV</text>
   </g>
 
-  <!-- Composicao App -> Repositorio -->
-  <line x1="1515" y1="210" x2="1540" y2="210" stroke="#58a6ff" stroke-width="1.5" marker-start="url(#composicao)"/>
-
-  <!-- Tabela SQLite Schema Box -->
-  <g transform="translate(1540, 315)">
-    <rect width="295" height="95" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="147" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">Tabela SQLite: historico</text>
-    <line x1="0" y1="24" x2="295" y2="24" stroke="#30363d"/>
-    <text x="10" y="40" fill="#f0883e" font-size="10" font-weight="bold">PRIMARY KEY (sessao, ciclo)</text>
-    <text x="10" y="55" fill="#8b949e" font-size="10">timestamp, nivel, temp</text>
-    <text x="10" y="70" fill="#8b949e" font-size="10">bomba, aquecedor, ultimo_comando</text>
-    <text x="10" y="85" fill="#8b949e" font-size="10">alarmes (JSON string)</text>
+  <!-- RegistroHistorico -->
+  <g transform="translate(1705, 510)" filter="url(#card_shadow)">
+    <rect width="195" height="58" rx="6" fill="#1c2128" stroke="#39c5bb" stroke-width="1.5"/>
+    <text x="97" y="17" text-anchor="middle" fill="#39c5bb" font-size="9" font-weight="bold">&lt;&lt;Entidade de Dados&gt;&gt;</text>
+    <text x="97" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">RegistroHistorico</text>
+    <text x="97" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Snapshot histórico indexado</text>
   </g>
 
-  <!-- RegistroHistorico (DTO Python) -->
-  <g transform="translate(1540, 420)">
-    <rect width="295" height="85" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="147" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">RegistroHistorico (DTO)</text>
-    <line x1="0" y1="24" x2="295" y2="24" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">sessao, ciclo, timestamp, nivel, temp</text>
-    <text x="10" y="53" fill="#8b949e" font-size="10">bomba, aquecedor, ultimo_comando, alarmes</text>
-    <text x="10" y="70" fill="#c9d1d9" font-size="10">+ tupla_chave(): (sessao, ciclo)</text>
+  <!-- == OBSERVER PATTERN (Direita Supervisório) == -->
+  <!-- MonitorAlarmes (Subject) -->
+  <g transform="translate(1965, 380)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1f242c" stroke="#3fb950" stroke-width="2"/>
+    <text x="100" y="17" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="bold">&lt;&lt;Observer — Subject&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">MonitorAlarmes</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Detecta bordas e notifica</text>
   </g>
 
-  <!-- MonitorAlarmes (Observer Subject) -->
-  <g transform="translate(1230, 315)">
-    <rect width="285" height="120" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-width="2"/>
-    <rect width="285" height="32" fill="#1f242c" rx="6"/>
-    <text x="142" y="16" text-anchor="middle" fill="#bc8cff" font-size="10" font-style="italic">[Observer: Subject]</text>
-    <text x="142" y="28" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">MonitorAlarmes</text>
-    <line x1="0" y1="32" x2="285" y2="32" stroke="#30363d"/>
-    <text x="10" y="50" fill="#8b949e" font-size="11">- observadores: list&lt;IAlarmeObserver&gt;</text>
-    <text x="10" y="67" fill="#8b949e" font-size="11">- ativos_anteriores: set&lt;str&gt;</text>
-    <line x1="0" y1="74" x2="285" y2="74" stroke="#30363d"/>
-    <text x="10" y="92" fill="#c9d1d9" font-size="11">+ registrar_obs(IAlarmeObserver)</text>
-    <text x="10" y="108" fill="#c9d1d9" font-size="11">+ processar_telemetria(telemetria)</text>
+  <!-- EventoAlarme -->
+  <g transform="translate(1965, 510)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1c2128" stroke="#f85149" stroke-width="1.5"/>
+    <text x="100" y="17" text-anchor="middle" fill="#f85149" font-size="9" font-weight="bold">&lt;&lt;Objeto de Evento&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">EventoAlarme</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Dados de ativação/normalização</text>
   </g>
 
   <!-- Interface: IAlarmeObserver -->
-  <g transform="translate(1230, 450)">
-    <rect width="285" height="85" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-width="2"/>
-    <rect width="285" height="32" fill="#1f242c" rx="6"/>
-    <text x="142" y="16" text-anchor="middle" fill="#bc8cff" font-size="10" font-style="italic">&lt;&lt;interface&gt;&gt; [Observer]</text>
-    <text x="142" y="28" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">IAlarmeObserver</text>
-    <line x1="0" y1="32" x2="285" y2="32" stroke="#30363d"/>
-    <text x="10" y="52" fill="#c9d1d9" font-size="11">+ notificar_ativacao(evento)*</text>
-    <text x="10" y="70" fill="#c9d1d9" font-size="11">+ notificar_normalizacao(evento)*</text>
+  <g transform="translate(1835, 660)" filter="url(#card_shadow)">
+    <rect width="200" height="58" rx="6" fill="#1f242c" stroke="#3fb950" stroke-width="2"/>
+    <text x="100" y="17" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="bold">&lt;&lt;Interface — Observer&gt;&gt;</text>
+    <text x="100" y="36" text-anchor="middle" fill="#f0f6fc" font-size="13" font-weight="bold">IAlarmeObserver</text>
+    <text x="100" y="50" text-anchor="middle" fill="#8b949e" font-size="10">+notificar_ativacao(), +normalizacao()</text>
   </g>
 
-  <!-- Agregacao Monitor -> IAlarmeObserver -->
-  <line x1="1372" y1="435" x2="1372" y2="450" stroke="#bc8cff" stroke-width="1.5" marker-start="url(#agregacao)"/>
-
-  <!-- Subclasses Observer: NotificadorTela e NotificadorEmail -->
-  <g transform="translate(1230, 550)">
-    <rect width="285" height="80" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="285" height="22" fill="#1f242c" rx="6"/>
-    <text x="142" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">NotificadorTela</text>
-    <line x1="0" y1="22" x2="285" y2="22" stroke="#30363d"/>
-    <text x="10" y="40" fill="#c9d1d9" font-size="10">+ notificar_ativacao(): alerta UI</text>
-    <text x="10" y="56" fill="#c9d1d9" font-size="10">+ notificar_normalizacao(): limpa UI</text>
-    <text x="10" y="72" fill="#c9d1d9" font-size="10">+ obter_eventos(): list</text>
+  <!-- Concrete Observer A: NotificadorTela -->
+  <g transform="translate(1710, 800)" filter="url(#card_shadow)">
+    <rect width="190" height="58" rx="6" fill="#1c2128" stroke="#3fb950" stroke-width="1.8"/>
+    <text x="95" y="17" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="bold">&lt;&lt;Concrete Observer&gt;&gt;</text>
+    <text x="95" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">NotificadorTela</text>
+    <text x="95" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Alertas visuais e badges</text>
   </g>
 
-  <g transform="translate(1540, 520)">
-    <rect width="295" height="110" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
-    <rect width="295" height="22" fill="#1f242c" rx="6"/>
-    <text x="147" y="16" text-anchor="middle" fill="#f0f6fc" font-size="11" font-weight="bold">NotificadorEmail</text>
-    <line x1="0" y1="22" x2="295" y2="22" stroke="#30363d"/>
-    <text x="10" y="38" fill="#8b949e" font-size="10">- config_smtp: dict | - modo_mock: bool</text>
-    <line x1="0" y1="44" x2="295" y2="44" stroke="#30363d"/>
-    <text x="10" y="60" fill="#c9d1d9" font-size="10">+ notificar_ativacao(): 1 e-mail</text>
-    <text x="10" y="76" fill="#c9d1d9" font-size="10">+ notificar_normalizacao(): 1 e-mail</text>
-    <text x="10" y="93" fill="#8b949e" font-size="10">- anti-spam: apenas borda de subida</text>
-  </g>
-
-  <!-- Linhas Heranca Observer -->
-  <path d="M 1372 550 L 1372 535" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#heranca)"/>
-  <path d="M 1680 520 L 1680 490 L 1515 490" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="4"/>
-
-  <!-- EventoAlarme (DTO) -->
-  <g transform="translate(1230, 645)">
-    <rect width="285" height="80" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="142" y="18" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">EventoAlarme (DTO)</text>
-    <line x1="0" y1="24" x2="285" y2="24" stroke="#30363d"/>
-    <text x="10" y="40" fill="#8b949e" font-size="10">codigo, severidade, mensagem</text>
-    <text x="10" y="55" fill="#8b949e" font-size="10">transicao: "ATIVACAO" ou "NORMALIZACAO"</text>
-    <text x="10" y="70" fill="#c9d1d9" font-size="10">+ eh_ativacao() | + eh_normalizacao()</text>
-  </g>
-
-  <!-- Autenticacao e Seguranca Supervisorio -->
-  <g transform="translate(1230, 740)">
-    <rect width="605" height="150" rx="6" fill="#21262d" stroke="#30363d"/>
-    <text x="302" y="20" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">Painel de Configuração e Auditoria</text>
-    <line x1="0" y1="28" x2="605" y2="28" stroke="#30363d"/>
-    <text x="15" y="48" fill="#e3b341" font-size="11">Proteção por Senha: "adm123" para alteração de limites e bypass de alarmes</text>
-    <text x="15" y="68" fill="#c9d1d9" font-size="11">Publica solicitacao_operador.json para o Controlador</text>
-    <text x="15" y="88" fill="#8b949e" font-size="10">Configura: faixas normais, escolha da estratégia ativa (A ou B) e limites de alarme</text>
-    <text x="15" y="108" fill="#3fb950" font-size="11">Modo Mock para Testes: salva e-mails em dados/notificacoes_email.log</text>
-    <text x="15" y="128" fill="#8b949e" font-size="10">Permite validação e cobertura de 100% sem requisições reais de internet</text>
+  <!-- Concrete Observer B: NotificadorEmail -->
+  <g transform="translate(1975, 800)" filter="url(#card_shadow)">
+    <rect width="190" height="58" rx="6" fill="#1c2128" stroke="#3fb950" stroke-width="1.8"/>
+    <text x="95" y="17" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="bold">&lt;&lt;Concrete Observer&gt;&gt;</text>
+    <text x="95" y="36" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="bold">NotificadorEmail</text>
+    <text x="95" y="50" text-anchor="middle" fill="#8b949e" font-size="10">Envio SMTP de alertas críticos</text>
   </g>
 
 
   <!-- ========================================================== -->
-  <!-- LEGENDA UML INFERIOR -->
+  <!-- TODAS AS LINHAS DE RELAÇÃO (ROTEAMENTO TOTALMENTE PLANAR) -->
   <!-- ========================================================== -->
-  <g transform="translate(25, 1010)">
-    <rect width="1830" height="50" rx="6" fill="#161b22" stroke="#30363d"/>
-    <text x="30" y="30" fill="#8b949e" font-size="12" font-weight="bold">CONVENÇÕES UML:</text>
-    
-    <line x1="160" y1="25" x2="200" y2="25" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#heranca)"/>
-    <text x="210" y="30" fill="#c9d1d9" font-size="11">Implementa Interface (Realização)</text>
 
-    <line x1="430" y1="25" x2="470" y2="25" stroke="#f0883e" stroke-width="1.5" marker-start="url(#composicao)"/>
-    <text x="480" y="30" fill="#c9d1d9" font-size="11">Composição Forte (*--)</text>
+  <!-- 1. Planta -> planta.json (Gera snapshot) -->
+  <path d="M 160 470 L 160 386 L 315 386" fill="none" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
+  <rect x="180" y="376" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="202" y="389" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="bold">gera</text>
 
-    <line x1="680" y1="25" x2="720" y2="25" stroke="#bc8cff" stroke-width="1.5" marker-start="url(#agregacao)"/>
-    <text x="730" y="30" fill="#c9d1d9" font-size="11">Agregação (o--)</text>
+  <!-- 2. planta.json -> Aquisicao (Lê e valida) -->
+  <path d="M 450 386 L 495 386" fill="none" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
+  <rect x="456" y="376" width="30" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="471" y="389" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="bold">lê</text>
 
-    <line x1="900" y1="25" x2="940" y2="25" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
-    <text x="950" y="30" fill="#c9d1d9" font-size="11">Troca de Arquivo Snapshot JSON</text>
+  <!-- 3. IComando -> comando_planta.json (Emite comando) -->
+  <path d="M 500 706 L 450 706" fill="none" stroke="#bc8cff" stroke-width="2" marker-end="url(#heranca_cmd)"/>
+  <rect x="456" y="696" width="38" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="475" y="709" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">emite</text>
 
-    <rect x="1200" y="18" width="16" height="16" rx="3" fill="#1c2128" stroke="#bc8cff" stroke-width="1.5"/>
-    <text x="1225" y="30" fill="#c9d1d9" font-size="11">Padrões GoF (Strategy, Command, Observer, Repository)</text>
+  <!-- 4. comando_planta.json -> Planta (Consome comando) -->
+  <path d="M 315 706 L 160 706 L 160 542" fill="none" stroke="#bc8cff" stroke-width="2" marker-end="url(#seta_fluxo)"/>
+  <rect x="180" y="696" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="202" y="709" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="bold">consome</text>
+
+  <!-- 5. Herança Strategy: EstrategiaFaixaHisterese -> IEstrategiaControle -->
+  <path d="M 610 208 L 610 228 L 690 228 L 690 250" fill="none" stroke="#58a6ff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca)"/>
+
+  <!-- 6. Herança Strategy: EstrategiaProporcionalModulada -> IEstrategiaControle -->
+  <path d="M 842 208 L 842 228 L 760 228 L 760 250" fill="none" stroke="#58a6ff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca)"/>
+
+  <!-- 7. Composição: ControladorProcesso *== IEstrategiaControle -->
+  <path d="M 940 370 L 940 330 L 725 330 L 725 308" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 8. Uso: Aquisicao -> ControladorProcesso -->
+  <path d="M 670 389 L 895 389" fill="none" stroke="#79c0ff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_dependencia)"/>
+  <rect x="740" y="379" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="762" y="392" text-anchor="middle" fill="#79c0ff" font-size="9">processa</text>
+
+  <!-- 9. Composição: Aquisicao *== Medicao -->
+  <path d="M 550 418 L 550 475" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 10. Composição: Aquisicao *== Atuacao -->
+  <path d="M 630 418 L 630 446 L 730 446 L 730 475" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 11. Uso: IEstrategiaControle -> Atuacao (Gera Atuação) -->
+  <path d="M 790 308 L 790 475" fill="none" stroke="#79c0ff" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#seta_dependencia)"/>
+  <rect x="765" y="445" width="45" height="16" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="787" y="457" text-anchor="middle" fill="#79c0ff" font-size="8">retorna</text>
+
+  <!-- 12. Composição: ControladorProcesso *== ConfiguracaoOperador -->
+  <path d="M 1100 370 L 1100 279 L 1245 279" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 13. Uso: ControladorProcesso -> Telemetria -->
+  <path d="M 1125 409 L 1245 409" fill="none" stroke="#79c0ff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_dependencia)"/>
+  <rect x="1165" y="399" width="40" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1185" y="412" text-anchor="middle" fill="#79c0ff" font-size="9">publica</text>
+
+  <!-- 14. Composição: Telemetria *== Alarme -->
+  <path d="M 1345 438 L 1345 510" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 15. Composição: ControladorProcesso *== GerenciadorSeguranca -->
+  <path d="M 1010 442 L 1010 565" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 16. Criação/Avaliação: GerenciadorSeguranca -> Alarme -->
+  <path d="M 1120 597 L 1210 597 L 1210 539 L 1245 539" fill="none" stroke="#f85149" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_vermelha)"/>
+  <rect x="1135" y="587" width="42" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1156" y="600" text-anchor="middle" fill="#f85149" font-size="9">avalia</text>
+
+  <!-- 17. Composição: ControladorProcesso *== IComando -->
+  <path d="M 915 442 L 915 540 L 590 540 L 590 675" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 18. Disparo de Intertravamento: GerenciadorSeguranca -> ComandoSeguranca -->
+  <path d="M 940 630 L 940 760 L 802 760 L 802 810" fill="none" stroke="#f85149" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_vermelha)"/>
+  <rect x="850" y="750" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="872" y="763" text-anchor="middle" fill="#f85149" font-size="9">aciona</text>
+
+  <!-- 19. Herança Command: ComandoAtuacao -> IComando -->
+  <path d="M 560 810 L 560 733" fill="none" stroke="#bc8cff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca_cmd)"/>
+
+  <!-- 20. Herança Command: ComandoSeguranca -> IComando -->
+  <path d="M 740 810 L 740 770 L 630 770 L 630 733" fill="none" stroke="#bc8cff" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca_cmd)"/>
+
+  <!-- 21. Uso: IComando -> PublicadorJson -->
+  <path d="M 525 733 L 525 790 L 485 790 L 485 969 L 500 969" fill="none" stroke="#79c0ff" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#seta_dependencia)"/>
+
+  <!-- 22. Contrato: SupervisorioApp -> solicitacao_operador.json -->
+  <path d="M 1820 279 L 1645 279" fill="none" stroke="#f0883e" stroke-width="2" marker-end="url(#seta_laranja)"/>
+  <rect x="1710" y="269" width="35" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1727" y="282" text-anchor="middle" fill="#f0883e" font-size="9" font-weight="bold">grava</text>
+
+  <!-- 23. Contrato: solicitacao_operador.json -> ConfiguracaoOperador -->
+  <path d="M 1500 279 L 1445 279" fill="none" stroke="#f0883e" stroke-width="2" marker-end="url(#seta_laranja)"/>
+  <rect x="1458" y="269" width="30" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1473" y="282" text-anchor="middle" fill="#f0883e" font-size="9" font-weight="bold">lê</text>
+
+  <!-- 24. Contrato: Telemetria -> telemetria.json -->
+  <path d="M 1445 409 L 1500 409" fill="none" stroke="#79c0ff" stroke-width="2" marker-end="url(#seta_dependencia)"/>
+  <rect x="1454" y="399" width="35" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1471" y="412" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">grava</text>
+
+  <!-- 25. Contrato: telemetria.json -> SupervisorioApp & MonitorAlarmes -->
+  <path d="M 1645 409 L 1760 409 L 1760 300 L 1820 300" fill="none" stroke="#79c0ff" stroke-width="2" marker-end="url(#seta_dependencia)"/>
+  <rect x="1670" y="399" width="30" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1685" y="412" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">lê</text>
+
+  <!-- 26. Composição: SupervisorioApp *== RepositorioHistorico -->
+  <path d="M 1850 315 L 1850 350 L 1802 350 L 1802 380" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 27. Uso: RepositorioHistorico -> RegistroHistorico -->
+  <path d="M 1802 438 L 1802 510" fill="none" stroke="#39c5bb" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_verde)"/>
+  <rect x="1780" y="465" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1802" y="478" text-anchor="middle" fill="#39c5bb" font-size="9">persiste</text>
+
+  <!-- 28. Composição: SupervisorioApp *== MonitorAlarmes -->
+  <path d="M 2020 315 L 2020 350 L 2065 350 L 2065 380" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+
+  <!-- 29. Uso/Emissão: MonitorAlarmes -> EventoAlarme -->
+  <path d="M 2065 438 L 2065 510" fill="none" stroke="#f85149" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#seta_vermelha)"/>
+  <rect x="2042" y="465" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="2065" y="478" text-anchor="middle" fill="#f85149" font-size="9">emite</text>
+
+  <!-- 30. Agregação: MonitorAlarmes o== IAlarmeObserver -->
+  <path d="M 1990 438 L 1990 600 L 1935 600 L 1935 660" fill="none" stroke="#3fb950" stroke-width="2" marker-start="url(#agregacao)"/>
+  <rect x="1942" y="590" width="48" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1966" y="603" text-anchor="middle" fill="#3fb950" font-size="9">notifica</text>
+
+  <!-- 31. Herança Observer: NotificadorTela -> IAlarmeObserver -->
+  <path d="M 1805 800 L 1805 750 L 1885 750 L 1885 718" fill="none" stroke="#3fb950" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca_obs)"/>
+
+  <!-- 32. Herança Observer: NotificadorEmail -> IAlarmeObserver -->
+  <path d="M 2070 800 L 2070 750 L 1985 750 L 1985 718" fill="none" stroke="#3fb950" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca_obs)"/>
+
+
+  <!-- ========================================================== -->
+  <!-- LEGENDA TÉCNICA UML PADRONIZADA (Rodapé) -->
+  <!-- ========================================================== -->
+  <g transform="translate(475, 1070)">
+    <rect width="1000" height="65" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="20" y="24" fill="#f0f6fc" font-size="12" font-weight="bold">LEGENDA DE CONECTORES UML:</text>
+
+    <!-- Herança / Realização -->
+    <line x1="220" y1="20" x2="270" y2="20" stroke="#58a6ff" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#heranca)"/>
+    <text x="280" y="24" fill="#8b949e" font-size="11">Realização de Interface (&lt;|..)</text>
+
+    <!-- Composição -->
+    <line x1="490" y1="20" x2="540" y2="20" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
+    <text x="555" y="24" fill="#8b949e" font-size="11">Composição Forte (*--)</text>
+
+    <!-- Agregação -->
+    <line x1="730" y1="20" x2="780" y2="20" stroke="#3fb950" stroke-width="2" marker-start="url(#agregacao)"/>
+    <text x="795" y="24" fill="#8b949e" font-size="11">Agregação (o--)</text>
+
+    <line x1="220" y1="48" x2="270" y2="48" stroke="#79c0ff" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#seta_dependencia)"/>
+    <text x="280" y="52" fill="#8b949e" font-size="11">Dependência / Uso (..&gt;)</text>
+
+    <!-- Contrato / Fluxo JSON -->
+    <line x1="490" y1="48" x2="540" y2="48" stroke="#e3b341" stroke-width="2" marker-end="url(#seta_fluxo)"/>
+    <text x="555" y="52" fill="#8b949e" font-size="11">Fluxo de Arquivo JSON em Disco (--&gt;)</text>
+
+    <text x="820" y="52" fill="#3fb950" font-size="11" font-weight="bold">✓ 100% Planar (Zero cruzamento de linhas)</text>
   </g>
 </svg>

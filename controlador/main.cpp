@@ -1,16 +1,13 @@
 #include <iostream>
 #include <string>
-#include <filesystem>
-#include "dominio/aquisicao.hpp"
-#include "dominio/telemetria.hpp"
-#include "servicos/publicador_json.hpp"
-
-using namespace controlador::dominio;
-using namespace controlador::servicos;
+#include <chrono>
+#include <thread>
+#include "servicos/controlador_processo.hpp"
 
 int main(int argc, char* argv[]) {
     std::string dirDados = "dados";
     bool umaVez = false;
+    int intervaloMs = 1000;
 
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
@@ -21,42 +18,28 @@ int main(int argc, char* argv[]) {
             dirDados = argv[++i];
         } else if (arg == "--uma-vez") {
             umaVez = true;
+        } else if (arg == "--intervalo" && i + 1 < argc) {
+            intervaloMs = std::stoi(argv[++i]);
         } else {
             std::cerr << "Argumento desconhecido: " << arg << "\n";
             return 1;
         }
     }
 
-    std::filesystem::path caminhoDados(dirDados);
-    std::filesystem::path caminhoPlanta = caminhoDados / "planta.json";
-    std::filesystem::path caminhoTelemetria = caminhoDados / "telemetria.json";
-
-    // 1. Verificar se o arquivo planta.json existe
-    if (!std::filesystem::exists(caminhoPlanta)) {
-        std::cerr << "Erro: Arquivo planta.json nao encontrado em: " << caminhoPlanta.string() << "\n";
-        return 1;
-    }
-
-    // 2. Leitura e validacao estrita do planta.json
-    Aquisicao aquisicao;
-    std::string erroAquisicao;
-    if (!Aquisicao::carregarDeArquivo(caminhoPlanta.string(), aquisicao, erroAquisicao)) {
-        std::cerr << "Erro: Falha na aquisicao da planta: " << erroAquisicao << "\n";
-        return 2;
-    }
-
-    // 3. Geracao e publicacao atomica da telemetria.json
-    Telemetria telemetria(aquisicao, {});
-    std::string jsonTelemetria = telemetria.serializar(2);
-
-    std::string erroPublicacao;
-    if (!PublicadorJson::publicarAtomico(caminhoTelemetria.string(), jsonTelemetria, erroPublicacao)) {
-        std::cerr << "Erro ao gravar telemetria: " << erroPublicacao << "\n";
-        return 3;
-    }
+    controlador::servicos::ControladorProcesso ctrl(dirDados);
 
     if (umaVez) {
-        return 0;
+        return ctrl.executarCiclo();
+    }
+
+    // Modo contínuo: executa ciclos até sinal de interrupção
+    while (true) {
+        int rc = ctrl.executarCiclo();
+        if (rc != 0) {
+            // Erros fatais encerram; ciclos repetidos (rc==0) continuam normalmente
+            std::cerr << "[Controlador] Ciclo encerrado com codigo " << rc << "\n";
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(intervaloMs));
     }
 
     return 0;
