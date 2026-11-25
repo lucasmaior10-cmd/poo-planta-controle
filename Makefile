@@ -1,4 +1,4 @@
-PYTHON ?= python3
+PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 CXX ?= g++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -Werror -pedantic
 ETAPA ?= $(shell cat ETAPA_ATUAL)
