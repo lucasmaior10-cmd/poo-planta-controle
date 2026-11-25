@@ -20,7 +20,7 @@ $(BUILD_DIR)/controlador: $(CPP_OBJECTS)
 
 $(BUILD_DIR)/obj/%.o: %.cpp $(CPP_HEADERS)
 	mkdir -p $(@D)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -Icontrolador -Icontrolador/include -MMD -MP -c $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -Icontrolador -Icontrolador/include -Icontrolador/third_party -MMD -MP -c $< -o $@
 
 $(BUILD_DIR)/autorais/%: $(BUILD_DIR)/obj/tests/cpp/%.o $(CPP_LIBRARY)
 	mkdir -p $(@D)

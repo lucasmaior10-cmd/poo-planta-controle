@@ -1,15 +1,46 @@
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <thread>
+#include "servicos/controlador_processo.hpp"
 
-// Esqueleto executável. A aquisição, as classes e o controle são trabalho da equipe.
-// Preserve a CLI: --dados DIRETORIO --uma-vez (um ciclo, sem esperar).
-// Em execução contínua, não recrie ids enquanto a sessão da planta for a mesma.
 int main(int argc, char* argv[]) {
-    if (argc == 2 && std::string(argv[1]) == "--ajuda") {
-        std::cout << "Uso futuro: controlador --dados dados --uma-vez\n";
-        return 0;
+    std::string dirDados = "dados";
+    bool umaVez = false;
+    int intervaloMs = 1000;
+
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        if (arg == "--ajuda") {
+            std::cout << "Uso: controlador [--dados DIRETORIO] [--uma-vez] [--ajuda]\n";
+            return 0;
+        } else if (arg == "--dados" && i + 1 < argc) {
+            dirDados = argv[++i];
+        } else if (arg == "--uma-vez") {
+            umaVez = true;
+        } else if (arg == "--intervalo" && i + 1 < argc) {
+            intervaloMs = std::stoi(argv[++i]);
+        } else {
+            std::cerr << "Argumento desconhecido: " << arg << "\n";
+            return 1;
+        }
     }
-    std::cout << "CONTROLADOR INCOMPLETO: implemente a aquisicao e a estrategia.\n";
-    std::cout << "Consulte docs/CONTRATO.md antes de produzir telemetria ou comandos.\n";
+
+    controlador::servicos::ControladorProcesso ctrl(dirDados);
+
+    if (umaVez) {
+        return ctrl.executarCiclo();
+    }
+
+    // Modo contínuo: executa ciclos até sinal de interrupção
+    while (true) {
+        int rc = ctrl.executarCiclo();
+        if (rc != 0) {
+            // Erros fatais encerram; ciclos repetidos (rc==0) continuam normalmente
+            std::cerr << "[Controlador] Ciclo encerrado com codigo " << rc << "\n";
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(intervaloMs));
+    }
+
     return 0;
 }
