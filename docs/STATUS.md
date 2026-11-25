@@ -77,4 +77,4 @@ Executado em `2026-11-25` na branch `projeto/03-supervisorio`:
 3. **Aumentar cobertura (opcional/recomendado antes da entrega):**
    - Elevar a cobertura de testes em `supervisor/app.py` (atualmente em `53%`, testando fluxos dos formulários de configuração/admin via `AppTest`) e em `controlador/servicos/controlador_processo.cpp` / `validador_solicitacao.cpp` (cenários de erro e leitura de `solicitacao_operador.json`).
 4. **Revisão para apresentação / entrevista:**
-   - Revisar `docs/GUIA_ENTREVISTA.md`, `docs/UML.md` e `docs/diagrama_classes.svg` para garantir alinhamento total com os arquivos finais implementados.
+   - Revisar `docs/GUIA_ENTREVISTA.md`, `docs/UML.md` e `docs/diagrama_classes.svg` para garantir alinhamento total com os arquivos finais implementados..
