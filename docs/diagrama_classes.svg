@@ -349,8 +349,8 @@
   <!-- 10. Composição: Aquisicao *== Atuacao -->
   <path d="M 630 418 L 630 446 L 730 446 L 730 475" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
 
-  <!-- 11. Uso: IEstrategiaControle -> Atuacao (Gera Atuação) -->
-  <path d="M 790 308 L 790 475" fill="none" stroke="#79c0ff" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#seta_dependencia)"/>
+  <!-- 11. Uso: IEstrategiaControle -> Atuacao (Gera Atuação - Salto em arco sem cruzamento com Linha 8) -->
+  <path d="M 790 308 L 790 380 A 9 9 0 0 1 790 398 L 790 475" fill="none" stroke="#79c0ff" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#seta_dependencia)"/>
   <rect x="765" y="445" width="45" height="16" rx="3" fill="#0b0f14" stroke="#30363d"/>
   <text x="787" y="457" text-anchor="middle" fill="#79c0ff" font-size="8">retorna</text>
 
@@ -405,10 +405,10 @@
   <rect x="1454" y="399" width="35" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
   <text x="1471" y="412" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">grava</text>
 
-  <!-- 25. Contrato: telemetria.json -> SupervisorioApp & MonitorAlarmes -->
-  <path d="M 1645 409 L 1760 409 L 1760 300 L 1820 300" fill="none" stroke="#79c0ff" stroke-width="2" marker-end="url(#seta_dependencia)"/>
-  <rect x="1670" y="399" width="30" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
-  <text x="1685" y="412" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">lê</text>
+  <!-- 25. Contrato: telemetria.json -> SupervisorioApp (Desvio sem atravessar RepositorioHistorico) -->
+  <path d="M 1645 409 L 1675 409 L 1675 300 L 1820 300" fill="none" stroke="#79c0ff" stroke-width="2" marker-end="url(#seta_dependencia)"/>
+  <rect x="1710" y="291" width="30" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1725" y="304" text-anchor="middle" fill="#79c0ff" font-size="9" font-weight="bold">lê</text>
 
   <!-- 26. Composição: SupervisorioApp *== RepositorioHistorico -->
   <path d="M 1850 315 L 1850 350 L 1802 350 L 1802 380" fill="none" stroke="#f0883e" stroke-width="2" marker-start="url(#composicao)"/>
@@ -426,10 +426,10 @@
   <rect x="2042" y="465" width="45" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
   <text x="2065" y="478" text-anchor="middle" fill="#f85149" font-size="9">emite</text>
 
-  <!-- 30. Agregação: MonitorAlarmes o== IAlarmeObserver -->
-  <path d="M 1990 438 L 1990 600 L 1935 600 L 1935 660" fill="none" stroke="#3fb950" stroke-width="2" marker-start="url(#agregacao)"/>
-  <rect x="1942" y="590" width="48" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
-  <text x="1966" y="603" text-anchor="middle" fill="#3fb950" font-size="9">notifica</text>
+  <!-- 30. Agregação: MonitorAlarmes o== IAlarmeObserver (Desvio pelo corredor central sem atravessar EventoAlarme) -->
+  <path d="M 1975 438 L 1975 460 L 1935 460 L 1935 660" fill="none" stroke="#3fb950" stroke-width="2" marker-start="url(#agregacao)"/>
+  <rect x="1911" y="585" width="48" height="18" rx="3" fill="#0b0f14" stroke="#30363d"/>
+  <text x="1935" y="598" text-anchor="middle" fill="#3fb950" font-size="9">notifica</text>
 
   <!-- 31. Herança Observer: NotificadorTela -> IAlarmeObserver -->
   <path d="M 1805 800 L 1805 750 L 1885 750 L 1885 718" fill="none" stroke="#3fb950" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#heranca_obs)"/>
